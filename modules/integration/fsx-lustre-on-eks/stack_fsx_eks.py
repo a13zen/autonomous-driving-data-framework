@@ -186,5 +186,11 @@ class FSXFileStorageOnEKS(Stack):
                         "reason": "Resource access restriced to ADDF resources",
                     }
                 ),
-            ],
+                NagPackSuppression(
+                    **{
+                        "id": "AwsSolutions-L1",
+                        "reason": "Suppress error caused by python_3_12 release in December"
+                    }
+                )
+            ]
         )
