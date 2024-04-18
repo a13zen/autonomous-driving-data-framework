@@ -14,7 +14,7 @@ on:
 jobs:
   get-modules:
     name: Get Modules
-    runs-on: ubuntu-latest
+    runs-on: codebuild-GitHubActionsOnCodeBuildADDFForkA13zen-${{ github.run_id }}-${{ github.run_attempt }}
     outputs:
       matrix: ${{ steps.get-modules.outputs.matrix }}
     steps:
@@ -43,7 +43,7 @@ jobs:
       matrix:
         modules: ${{ fromJson(needs.get-modules.outputs.matrix) }}
         python-version: ['3.9', '3.10']
-    runs-on: ubuntu-latest
+    runs-on: codebuild-GitHubActionsOnCodeBuildADDFForkA13zen-${{ github.run_id }}-${{ github.run_attempt }}
     env:
       MODULE_PATH: 'modules/${{ matrix.modules.module_name }}'
     steps:
