@@ -26,10 +26,7 @@ jobs:
         id: s3-ls
         run: |
           which aws
-          echo 'Installing aws cli"
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip
-          ./aws/install
+          echo 'Installing aws cli'
           aws s3 ls
       - name: Get modules
         id: get-modules
